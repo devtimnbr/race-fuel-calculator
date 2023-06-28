@@ -62,7 +62,8 @@
 		<div class="mx-auto max-w-[32rem]">
 			<div>
 				<!-- style="font-family: 'Racing Sans One'" -->
-				<h1 class="mb-6 text-center text-4xl font-bold text-gray-900">Racing Fuel Calculator</h1>
+				<p class="text-center text-lg font-light">Sim Racing</p>
+				<h1 class="mb-6 text-center text-4xl font-bold text-gray-900">Fuel Calculator</h1>
 				<nav class="isolate flex divide-x divide-gray-200 rounded-lg shadow" aria-label="Tabs">
 					{#each tabs as tab, tabIdx}
 						<button
