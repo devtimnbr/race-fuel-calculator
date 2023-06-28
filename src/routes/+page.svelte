@@ -23,6 +23,8 @@
 	$: seconds = 42
 	$: milliseconds = 690
 
+	$: computedMinutes = minutes + seconds / 60 + milliseconds / 60000
+
 	$: if (minutes < 0) minutes = 0
 
 	$: if (seconds < 0) seconds = 0
@@ -31,7 +33,8 @@
 	$: if (milliseconds < 0) milliseconds = 0
 	$: if (milliseconds > 999) milliseconds = 999
 
-	$: laps = Math.ceil(raceLengthMinutes / (minutes + seconds / 60 + milliseconds / 60000))
+	$: laps =
+		currentTab?.name === 'Time' ? Math.ceil(raceLengthMinutes / computedMinutes) : raceLengthLaps
 
 	$: minimumFuel = Math.ceil(laps * fuelPerLap)
 	$: recommendedFuel = Math.ceil(minimumFuel + fuelPerLap)
@@ -41,6 +44,8 @@
 		{ name: 'Time', current: true },
 		{ name: 'Laps', current: false },
 	]
+
+	$: currentTab = tabs.find((el) => el.current)
 
 	function handleTabChange(idx: number) {
 		tabs.forEach((t, i) => (tabs[i].current = false))
@@ -53,11 +58,11 @@
 </script>
 
 <main>
-	<section class="h-screen w-screen py-24 px-4">
+	<section class="flex h-screen w-screen items-center justify-center py-24 px-4">
 		<div class="mx-auto max-w-[32rem]">
 			<div>
 				<!-- style="font-family: 'Racing Sans One'" -->
-				<h1 class="mb-6 text-center text-4xl font-bold">Racing Fuel Calculator</h1>
+				<h1 class="mb-6 text-center text-4xl font-bold text-gray-900">Racing Fuel Calculator</h1>
 				<nav class="isolate flex divide-x divide-gray-200 rounded-lg shadow" aria-label="Tabs">
 					{#each tabs as tab, tabIdx}
 						<button
@@ -81,17 +86,32 @@
 				</nav>
 			</div>
 			<div class="flex flex-col space-y-6 bg-gray-50 p-8">
-				<div class="w-full">
-					<label class="mb-1 block" for="race-length"
-						>Race Length <span class="float-right text-xs">in minutes</span></label>
-					<input
-						type="number"
-						name="race-length"
-						id="race-length"
-						class="block w-full min-w-0 flex-1 rounded-md border-0 py-1.5 px-2 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-						placeholder="Race Length"
-						bind:value={raceLengthMinutes} />
-				</div>
+				{#if currentTab?.name === 'Time'}
+					<div class="w-full">
+						<label class="mb-1 block" for="race-length"
+							>Race Length <span class="float-right text-xs">in minutes</span></label>
+						<input
+							type="number"
+							name="race-length"
+							id="race-length"
+							class="block w-full min-w-0 flex-1 rounded-md border-0 py-1.5 px-2 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+							placeholder="Race Length"
+							bind:value={raceLengthMinutes} />
+					</div>
+				{:else if currentTab?.name === 'Laps'}
+					<div class="w-full">
+						<label class="mb-1 block" for="race-length"
+							>Race Length <span class="float-right text-xs">in laps</span></label>
+						<input
+							type="number"
+							name="race-length"
+							id="race-length"
+							class="block w-full min-w-0 flex-1 rounded-md border-0 py-1.5 px-2 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+							placeholder="Race Length"
+							bind:value={raceLengthLaps} />
+					</div>
+				{/if}
+
 				<div class="w-full">
 					<label for="fuel-per-lap" class="mb-1 block">Fuel per Lap</label>
 					<input
@@ -145,23 +165,30 @@
 				</div>
 			</div>
 			<div
-				class="flex flex-col flex-wrap justify-between justify-between gap-y-4 rounded-b-lg border-2 border-indigo-500 bg-indigo-50 p-8 text-indigo-700 sm:flex-row">
+				class="flex flex-col flex-wrap justify-between justify-between gap-y-4 rounded-b-lg bg-indigo-50 p-8 text-indigo-700 sm:flex-row">
 				<div class="grow basis-1/2">
-					<p class="text-2xl">{recommendedFuel}l</p>
+					<p class="text-2xl font-bold">{recommendedFuel}l</p>
 					<p class="text-sm">Recommended Fuel</p>
 				</div>
 				<div class="grow basis-1/2">
-					<p class="text-2xl">{safeFuel}l</p>
+					<p class="text-2xl font-bold">{safeFuel}l</p>
 					<p class="text-sm">Safe Fuel (Full Formation Lap)</p>
 				</div>
 				<div class="grow basis-1/2">
-					<p class="text-2xl">{minimumFuel}l</p>
+					<p class="text-2xl font-bold">{minimumFuel}l</p>
 					<p class="text-sm">Minimum Fuel</p>
 				</div>
-				<div class="grow basis-1/2">
-					<p class="text-2xl">{laps}</p>
-					<p class="text-sm">Total Laps</p>
-				</div>
+				{#if currentTab?.name === 'Time'}
+					<div class="grow basis-1/2">
+						<p class="text-2xl font-bold">{laps}</p>
+						<p class="text-sm">Total Laps</p>
+					</div>
+				{:else if currentTab?.name === 'Laps'}
+					<div class="grow basis-1/2">
+						<p class="text-2xl font-bold">{Math.ceil(laps * computedMinutes)}</p>
+						<p class="text-sm">Total minutes</p>
+					</div>
+				{/if}
 			</div>
 		</div>
 	</section>
