@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { browser } from '$app/environment'
 	import { onMount } from 'svelte'
 
 	let enabled = false
@@ -27,9 +28,11 @@
 		if (theme === 'light') {
 			localStorage.setItem('theme', 'dark')
 			document.documentElement.classList.add('dark')
+			document.querySelector('html')?.classList.add('bg-gray-900')
 		} else {
 			localStorage.setItem('theme', 'light')
 			document.documentElement.classList.remove('dark')
+			document.querySelector('html')?.classList.remove('bg-gray-900')
 		}
 	}
 </script>

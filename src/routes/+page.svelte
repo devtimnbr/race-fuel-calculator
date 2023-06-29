@@ -43,7 +43,7 @@
 </script>
 
 <main class="relative">
-	<section class="min-w-screen relative flex min-h-screen items-center justify-center py-12 px-4">
+	<section class="min-w-screen relative flex min-h-screen items-center justify-center py-16 px-4">
 		<div class="max-w-[32rem]">
 			<ThemeToggle />
 			<p class="text-center text-lg font-light dark:text-white">Sim Racing</p>
@@ -85,7 +85,7 @@
 							type="number"
 							name="race-length"
 							id="race-length"
-							class="block w-full min-w-0 flex-1 rounded-md border-0 py-1.5 px-2 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 dark:bg-gray-600 dark:text-white sm:text-sm sm:leading-6"
+							class="block w-full min-w-0 flex-1 rounded-md border border-gray-300 py-1.5 px-2 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 dark:bg-gray-600 dark:text-white sm:text-sm sm:leading-6"
 							placeholder="Race Length"
 							bind:value={raceLengthMinutes} />
 					</div>
