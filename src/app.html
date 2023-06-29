@@ -3,10 +3,18 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
+		<title>Fuel Calculator | Sim Racing Fuel Management Tool</title>
+		<meta name="title" content="Racing Fuel Calculator | Sim Racing Fuel Management Tool" />
+		<meta
+			name="description"
+			content="Optimize your sim racing performance with our Racing Fuel Calculator. Calculate fuel requirements for games like Assetto Corsa Competizione." />
+		<meta name="robots" content="index, follow" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="language" content="English" />
+
 		%sveltekit.head%
 
 		<!-- fonts -->
-
 		<!-- favicons -->
 		<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
@@ -18,6 +26,7 @@
 		<meta name="msapplication-config" content="/favicons/browserconfig.xml" />
 		<meta name="theme-color" content="#f1f1f1" />
 
+		<!-- prevent darkmode flash -->
 		<script>
 			localStorage.theme === 'dark' ||
 			(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
@@ -25,6 +34,7 @@
 				: document.documentElement.classList.remove('dark')
 		</script>
 
+		<!-- analytics -->
 		<script
 			async
 			src="https://umami.timneubauer.dev/script.js"

@@ -1,4 +1,6 @@
 <script lang="ts">
+	import '../app.css'
+
 	import ThemeToggle from '../components/ThemeToggle.svelte'
 
 	let raceLengthMinutes = 20
@@ -44,8 +46,8 @@
 
 <main class="relative">
 	<section class="min-w-screen relative flex min-h-screen items-center justify-center py-16 px-4">
+		<ThemeToggle />
 		<div class="max-w-[32rem]">
-			<ThemeToggle />
 			<p class="text-center text-lg font-light dark:text-white">Sim Racing</p>
 			<h1 class="mb-6 text-center text-4xl font-bold text-gray-900 dark:text-white">
 				Fuel Calculator
