@@ -186,7 +186,9 @@
 	</section>
 	<footer class="absolute bottom-4 w-full text-center dark:text-white">
 		<p class="text-xs font-light">
-			Coded by <a href="https://timneubauer.dev" class="underline">timneubauer.dev</a>
+			Coded by <a
+				href="https://timneubauer.dev"
+				class="underline hover:text-indigo-600 dark:hover:text-indigo-400">timneubauer.dev</a>
 		</p>
 	</footer>
 </main>

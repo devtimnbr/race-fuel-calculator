@@ -3,6 +3,7 @@
 </script>
 
 <head>
+	<title>Fuel Calculator | Sim Racing Fuel Management Tool</title>
 	<meta name="title" content="Racing Fuel Calculator | Sim Racing Fuel Management Tool" />
 	<meta
 		name="description"
