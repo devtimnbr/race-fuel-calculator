@@ -1,5 +1,6 @@
 /// <reference lib="webworker" />
 
+// @ts-ignore
 import { build, files, version } from '$service-worker'
 
 const worker = self as unknown as ServiceWorkerGlobalScope
