@@ -1,6 +1,5 @@
 <script lang="ts">
 	import '../app.css'
-
 	import ThemeToggle from '../components/ThemeToggle.svelte'
 
 	let raceLengthMinutes = 20
@@ -78,7 +77,7 @@
 				{/each}
 			</nav>
 			<!-- Calculator -->
-			<div class="flex flex-col space-y-6 bg-gray-50 p-8 dark:bg-gray-700 dark:text-white">
+			<div class="flex flex-col space-y-6 bg-gray-50 p-8 dark:bg-gray-800 dark:text-white">
 				{#if currentTab?.name === 'Time'}
 					<div class="w-full">
 						<label class="mb-1 block" for="race-length"
@@ -87,7 +86,7 @@
 							type="number"
 							name="race-length"
 							id="race-length"
-							class="block w-full min-w-0 flex-1 rounded-md border border-gray-300 py-1.5 px-2 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 dark:bg-gray-600 dark:text-white sm:text-sm sm:leading-6"
+							class="block w-full min-w-0 flex-1 rounded-md border border-gray-300 py-1.5 px-2 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 dark:border-gray-500 dark:bg-gray-700 dark:text-white sm:text-sm sm:leading-6"
 							placeholder="Race Length"
 							bind:value={raceLengthMinutes} />
 					</div>
@@ -99,7 +98,7 @@
 							type="number"
 							name="race-length"
 							id="race-length"
-							class="block w-full min-w-0 flex-1 rounded-md border border-gray-300 py-1.5 px-2 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 dark:bg-gray-600 dark:text-white sm:text-sm sm:leading-6"
+							class="block w-full min-w-0 flex-1 rounded-md border border-gray-300 py-1.5 px-2 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 dark:border-gray-500 dark:bg-gray-700 dark:text-white sm:text-sm sm:leading-6"
 							placeholder="Race Length"
 							bind:value={raceLengthLaps} />
 					</div>
@@ -112,7 +111,7 @@
 						step="0.1"
 						name="fuel-per-lap"
 						id="fuel-per-lap"
-						class="block w-full min-w-0 flex-1 rounded-md border border-gray-300 py-1.5 px-2 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 dark:bg-gray-600 dark:text-white sm:text-sm sm:leading-6"
+						class="block w-full min-w-0 flex-1 rounded-md border border-gray-300 py-1.5 px-2 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 dark:border-gray-500 dark:bg-gray-700 dark:text-white sm:text-sm sm:leading-6"
 						placeholder="Fuel per Lap"
 						bind:value={fuelPerLap} />
 				</div>
@@ -125,32 +124,32 @@
 							type="number"
 							name="lap-time-minutes"
 							id="lap-time-minutes"
-							class="block w-full min-w-0 flex-1 rounded-none rounded-md rounded-l-md border border-r-0 border-gray-300 py-1.5 px-2 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 dark:bg-gray-600 dark:text-white sm:text-sm sm:leading-6"
+							class="block w-full min-w-0 flex-1 rounded-none rounded-md rounded-l-md border border-r-0 border-gray-300 py-1.5 px-2 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 dark:border-gray-500 dark:bg-gray-700 dark:text-white sm:text-sm sm:leading-6"
 							placeholder="minutes"
 							min="0"
 							bind:value={minutes} />
 
 						<span
-							class="inline-flex items-center border border-r-0 border-gray-300 px-1 text-gray-500 dark:bg-gray-600 dark:text-white sm:text-sm"
+							class="inline-flex items-center border border-r-0 border-gray-300 px-1 text-gray-500 dark:border-gray-500 dark:bg-gray-700 dark:text-white sm:text-sm"
 							>:</span>
 						<input
 							type="number"
 							name="lap-time-seconds"
 							id="lap-time-seconds"
-							class="block w-full min-w-0 flex-1 rounded-none rounded-md border border-r-0 border-gray-300 py-1.5 px-2 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 dark:bg-gray-600 dark:text-white sm:text-sm sm:leading-6"
+							class="block w-full min-w-0 flex-1 rounded-none rounded-md border border-r-0 border-gray-300 py-1.5 px-2 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 dark:border-gray-500 dark:bg-gray-700 dark:text-white sm:text-sm sm:leading-6"
 							placeholder="seconds"
 							min="0"
 							max="59"
 							bind:value={seconds} />
 
 						<span
-							class="inline-flex items-center border border-r-0 border-gray-300 px-1 text-gray-500 dark:bg-gray-600 dark:text-white sm:text-sm"
+							class="inline-flex items-center border border-r-0 border-gray-300 px-1 text-gray-500 dark:border-gray-500 dark:bg-gray-700 dark:text-white sm:text-sm"
 							>:</span>
 						<input
 							type="number"
 							name="lap-time-milliseconds"
 							id="lap-time-milliseconds"
-							class="block w-full min-w-0 flex-1 rounded-none rounded-md rounded-r-md border border-gray-300 py-1.5 px-2 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 dark:bg-gray-600 dark:text-white sm:text-sm sm:leading-6"
+							class="block w-full min-w-0 flex-1 rounded-none rounded-md rounded-r-md border border-gray-300 py-1.5 px-2 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 dark:border-gray-500 dark:bg-gray-700 dark:text-white sm:text-sm sm:leading-6"
 							placeholder="milliseconds"
 							min="0"
 							max="999"
@@ -159,7 +158,7 @@
 				</div>
 			</div>
 			<div
-				class="flex flex-col flex-wrap justify-between justify-between gap-y-4 rounded-b-lg bg-indigo-50 p-8 text-indigo-700 dark:bg-indigo-900 dark:text-indigo-200 sm:flex-row">
+				class="flex flex-col flex-wrap justify-between justify-between gap-y-4 rounded-b-lg bg-indigo-50 p-8 text-indigo-700 dark:bg-indigo-900 dark:text-indigo-100 sm:flex-row">
 				<div class="grow basis-1/2">
 					<p class="text-2xl font-bold">{recommendedFuel}l</p>
 					<p class="text-sm">Recommended Fuel</p>
