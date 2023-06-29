@@ -55,8 +55,8 @@
 	}
 </script>
 
-<main>
-	<section class="flex h-screen w-screen items-center justify-center py-24 px-4">
+<main class="relative">
+	<section class="min-w-screen flex min-h-screen items-center justify-center py-12 px-4">
 		<div class="max-w-[32rem]">
 			<p class="text-center text-lg font-light">Sim Racing</p>
 			<h1 class="mb-6 text-center text-4xl font-bold text-gray-900">Fuel Calculator</h1>
@@ -190,4 +190,9 @@
 			</div>
 		</div>
 	</section>
+	<footer class="absolute bottom-4 w-full text-center">
+		<p class="text-xs font-light">
+			Coded by <a href="https://timneubauer.dev" class="underline">timneubauer.dev</a>
+		</p>
+	</footer>
 </main>
